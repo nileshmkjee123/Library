@@ -12,7 +12,7 @@ export const Carousel = () => {
   useEffect(() =>{
     const fetchBooks = async() => {
       const baseUrl: string ="http://localhost:8080/api/books";
-      const url:string =`${baseUrl}?page=0&size=9`;
+      const url:string =`${baseUrl}?page=0&size=12`;
       const response = await fetch(url);
       if(!response.ok)
       {throw new Error("Something went wrong!");
@@ -87,6 +87,14 @@ export const Carousel = () => {
             <div className="carousel-item">
               <div className="row d-flex justify-content-center align-items-center">
               {books.slice(6,9).map(book =>(
+                <ReturnBook book={book} key={book.id}/>
+              ))
+            }
+              </div>
+            </div>
+            <div className="carousel-item">
+              <div className="row d-flex justify-content-center align-items-center">
+              {books.slice(9,12).map(book =>(
                 <ReturnBook book={book} key={book.id}/>
               ))
             }
