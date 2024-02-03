@@ -7,12 +7,12 @@ import { Footer } from './components/Footer';
 export const HomePage = () => {
     return(
         <>
-        <Navbar />
+        {/* <Navbar /> */}
    <ExploreTopBooks />
    <Carousel />
    <Heros />
    <LibraryServices />
-   <Footer />
+   {/* <Footer /> */}
         </>
     );
 }
