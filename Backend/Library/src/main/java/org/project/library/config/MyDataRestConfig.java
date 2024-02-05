@@ -1,6 +1,7 @@
 package org.project.library.config;
 
 import org.project.library.entity.Book;
+import org.project.library.entity.Review;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -18,6 +19,8 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 HttpMethod.POST,HttpMethod.PUT,HttpMethod.PATCH};
         config.exposeIdsFor(Book.class);
         disableHttpMethods(Book.class,config,theUnsupportedActions);
+        config.exposeIdsFor(Review.class);
+        disableHttpMethods(Review.class,config,theUnsupportedActions);
         //Configure CORS Mapping
         cors.addMapping(config.getBasePath()+"/**")
                 .allowedOrigins(theAllowedOrigins);
