@@ -21,6 +21,7 @@ submitReview: any}> = (props) => {
         return (<Link to={'/login'} className="btn btn-success btn-lg">Sign in</Link>)
     }
     function reviewRender(){
+        console.log(props.isReviewLeft);
         if(props.isAuthenticated && !props.isReviewLeft){
             return(<p><LeaveAReview submitReview={props.submitReview}/></p>)
         }

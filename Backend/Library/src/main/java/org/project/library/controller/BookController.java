@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://localhost:3000")
 @RequestMapping("/api/books")
 public class BookController {
     private BookService bookService;
@@ -38,5 +38,17 @@ public class BookController {
     public int currentLoansCount(@RequestHeader(value = "Authorization")String token){
         String userEmail = ExtractJWT.payLoadJWTExtraction(token,"\"sub\"");
         return bookService.currentLoansCount(userEmail);
+    }
+    @PutMapping("/secure/return")
+    public void returnBook(@RequestHeader(value = "Authorization")String token,
+                           @RequestParam Long bookId) throws Exception{
+        String userEmail = ExtractJWT.payLoadJWTExtraction(token,"\"sub\"");
+        bookService.returnBook(userEmail,bookId);
+    }
+    @PutMapping("/secure/renew/loan")
+    public void renewLoan(@RequestHeader(value = "Authorization")String token,
+                          @RequestParam Long bookId) throws Exception{
+        String userEmail = ExtractJWT.payLoadJWTExtraction(token,"\"sub\"");
+        bookService.renewLoan(userEmail,bookId);
     }
 }
