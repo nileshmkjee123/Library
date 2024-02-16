@@ -14,7 +14,7 @@ export const PaymentPage = () => {
     useEffect(() => {
         const fetchFees = async() => {
             if(authState && authState.isAuthenticated){
-                const url = `${process.env.REACT_APP_API}/payments/search/findByUserEmail=${authState.accessToken?.claims.sub}`;
+                const url = `${process.env.REACT_APP_API}/payments/search/findByUserEmail?userEmail=${authState.accessToken?.claims.sub}`;
                 const requestOptions = {
                     method: 'GET',
                     headers: {

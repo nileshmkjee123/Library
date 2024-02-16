@@ -49,7 +49,7 @@ export const LoansModal: React.FC<{
                                             }
                                             {props.shelfCurrentLoan.daysLeft < 0 &&
                                                 <p className='text-danger'>
-                                                    Past due by {props.shelfCurrentLoan.daysLeft*-1} days.
+                                                    Past due by {props.shelfCurrentLoan.daysLeft} days.
                                                 </p>
                                             }
                                             <div className="list-group mt-3">

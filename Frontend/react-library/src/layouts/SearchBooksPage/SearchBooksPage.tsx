@@ -3,6 +3,7 @@ import BookModel from '../../models/BookModel';
 import { Pagination } from '../Utils/Pagination';
 import { SpinnerLoading } from '../Utils/SpinnerLoading';
 import { SearchBook } from './components/SearchBook';
+import { Link } from 'react-router-dom';
 
 export const SearchBooksPage = () => {
 
@@ -185,8 +186,8 @@ export const SearchBooksPage = () => {
                             <h3>
                                 Can't find what you are looking for?
                             </h3>
-                            <a type='button' className='btn main-color btn-md px-4 me-md-2 fw-bold text-white'
-                                href='#'>Library Services</a>
+                            <Link type='button' className='btn main-color btn-md px-4 me-md-2 fw-bold text-white'
+                                to='/messages'>Library Services</Link>
                         </div>
                     }
                     {totalPages > 1 &&
